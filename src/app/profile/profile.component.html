@@ -3,7 +3,7 @@
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqL7rIo8nFCMweTs_1cQTHEF3Bqc7JQ0fY0rSPB-zwBj53f3hF">
 </div>
 <div class="container-fluid">
-  <form action="" class="search-form" class="card-panel teal lighten-2" >
+  <form (keyup) = "call_profile()" #userForm = 'ngForm' class="search-form" class="card-panel teal lighten-2" >
     <div class="form-group">
       <br>
       <input type="text" class="form-control" placeholder="Enter username" id="form" [(ngModel)] = "username" name="username" (keyup)="call_profile()">
@@ -20,11 +20,7 @@
       <div class="panel-body">
         <div class="row">
           <div class="col-sm-3">
-<<<<<<< HEAD
-            <!-- <img src= "{{profile.avatar_url}}"  alt="Profile Image"> -->
-=======
             <img src= "{{profile.avatar_url}}"  alt="Profile Image">
->>>>>>> 61d0b588eefe3bbdfeef9aced54d2229a6b504be
           </div>
           <div class="col-sm-5">
             <ul class="list-group">
@@ -44,7 +40,7 @@
               &nbsp;
             </p>
             <p>
-              <a href="{{profile.html_url}}" class="btn btn-sm btn-danger">View profile on Github</a>
+              <a href="{{profile.html_url}}" class="btn btn-sm btn-success">View profile on Github</a>
             </p>
 
 
