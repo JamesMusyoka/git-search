@@ -7,8 +7,8 @@ import {map} from 'rxjs/operators' ;
 })
 export class ProfileService {
 
-  private username: any;
-  private repos: string;
+  private username: string;
+  // private repos: any[];
   private clientid = '6def820f25fb41577101';
   private clientsecret = '3e3555660560db83d02b5c0555bf21da3ab196dc';
 
@@ -19,12 +19,12 @@ export class ProfileService {
   getProfileInfo() {
      return this.http.get('https://api.github.com/users/' + this.username +
      '?client_id=' + this.clientid + '&clientsecret=' + this.clientsecret)
-    .pipe(map( res => ('')));
+    .pipe(map( res => res));
   }
 
   getRepoInfo() {
     return this.http.get('https://api.github.com/users/' + this.username + '/repos?clientsecret=' + this.clientsecret )
-    .pipe(map(res => ('')));
+    .pipe(map(res => res));
 
   }
 
