@@ -19,7 +19,7 @@ export class ProfileComponent implements OnInit {
       console.log(profile);
       this.profile = profile;
     });
-    this.profileService.updateProfile(this.username);
+    this.profileService.updateProfile(this.repos);
     this.profileService.getRepoInfo().subscribe(repos => {
       console.log('Repos work');
       this.repos = repos;
