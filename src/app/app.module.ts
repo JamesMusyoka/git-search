@@ -1,18 +1,23 @@
+import { ProfileService } from './service/profile.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { ProfileComponent } from './profile/profile.component';
+import {HttpClientModule} from '@angular/common/http';
+import { DateCountPipe } from './date-count.pipe';
+import {FormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProfileComponent,
+    DateCountPipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [ProfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
