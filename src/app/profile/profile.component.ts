@@ -19,12 +19,11 @@ export class ProfileComponent implements OnInit {
       console.log(profile);
       this.profile = profile;
     });
-    this.profileService.updateProfile(this.repos);
+
+    this.profileService.updateProfile(this.username);
     this.profileService.getRepoInfo().subscribe(repos => {
-      console.log('Repos work');
+      console.log(repos);
       this.repos = repos;
-
-
     });
   }
 
