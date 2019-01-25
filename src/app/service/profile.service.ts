@@ -8,7 +8,7 @@ import {map} from 'rxjs/operators' ;
 export class ProfileService {
 
   private username: string;
-  // private repos: any[];
+  private repos: any[];
   private clientid = '6def820f25fb41577101';
   private clientsecret = '3e3555660560db83d02b5c0555bf21da3ab196dc';
   private access_token = 'a6bfd7698f44e9fbf477bb74015290a8431c7483';
