@@ -1,41 +1,56 @@
-<div class="container text-center">
-<h1>WELCOME TO GIT-SEARCH</h1>
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqL7rIo8nFCMweTs_1cQTHEF3Bqc7JQ0fY0rSPB-zwBj53f3hF">
+<div class="container">
 
-<!-- <div class="container"> -->
-  <form (keyup) = "call_profile()" #userForm = 'ngForm' class="search-form" class="card-panel teal lighten-2" >
-    <div class="form-group">
-      <br>
-      <input type="text" class="form-control" placeholder="Enter username" id="form" [(ngModel)] = "username" name="username" (keyup)="call_profile()">
-    </div>
-  </form>
-    <div class="prof-tab">
-    <h3>PROFILE</h3>
-    <div class="prof" *ngIf="profile">
-    <br>
-    <img width="200" src= "{{profile.avatar_url}}"  alt="Profile Image"> <br>
-    <div class="deets">
-    {{profile.name}} <br>
-    <br>
-    @{{profile.login}}<br>
-    <br>
-    <button class="btn btn-default btn-sm" >Public Repos: {{profile.public_repos}}</button><br><br>
-    <button class="btn btn-primary btn-sm" >Followers: {{profile.followers}}</button><br><br>
-    <button class="btn btn-success btn-sm" >Following: {{profile.following}}</button><br><br>
-    <p><a href="{{profile.html_url}}" class="btn btn-sm btn-success">View profile on Github</a></p><br><br>
-    </div>
-    </div>
-    </div>
+<div class="w3-content w3-center w3-pale-red">
 
-    <div class="repo-tab">
-    <h3>REPOSITORIES</h3>
-    <div class="repo-details" *ngFor="let repos of repos" index= i>
-    <p>{{repos.name}} </p>
-    <p>{{repos.description}}</p>
-    <p>{{repos.created_at|date}}</p>
-    <p>{{repos.updated_at|date}}</p>
-    <a href="{{repos.html_url}}">View this project on Github</a>
-    <a href="{{repos.homepage}}">View Live Page</a>
+    <h1>Welcome to Git-Search</h1>
+    <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqL7rIo8nFCMweTs_1cQTHEF3Bqc7JQ0fY0rSPB-zwBj53f3hF"> -->
+    <form (keyup)="call_profile()" #userForm='ngForm' class="search-form" class="card-panel teal lighten-2">
+      <div class="form-group">
+        <br>
+        <input type="text" class="form-control" placeholder="Enter username" id="form" [(ngModel)]="username" name="username" (keyup)="call_profile()">
+      </div>
+    </form>
+
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+    <div class="w3-third" *ngIf="profile">
+      <!-- Left Column -->
+      <div class="w3-white w3-text-grey w3-card-4 w3-Pale-Red" >
+        <div class="w3-display-container">
+          <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Profile</h2>
+          <img src="{{profile.avatar_url}}" style="width:100%" alt="Avatar">
+          <div class="w3-display-bottomleft w3-container w3-text-black">
+            <h2>{{profile.name}}</h2>
+            <p>@{{profile.login}}</p>
+          </div>
+        </div>
+        <hr>
+        <p class="w3-small"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Public Repos : {{profile.public_repos}}</b></p>
+        <p class="w3-small"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Followers: {{profile.followers}}</b></p>
+        <p class="w3-small"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Following: {{profile.following}}</b></p>
+        <hr>
+        <a href="{{profile.html_url}}">
+          <h6><span class="w3-tag w3-teal w3-round">View me on GitHub</span></h6>
+        </a>
+      </div>
     </div>
-  </div>
+    <!-- End Left Column -->
+    <div class="w3-twothird">
+      <!-- Right Column -->
+      <div class="w3-container w3-card w3-white w3-margin-bottom">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Repositories</h2>
+        <div class="w3-container" *ngFor="let repos of repos" index=i>
+          <h5 class="w3-opacity"><b>{{repos.name}}</b></h5>
+          <h6 class="w3-text-teal">Created on {{repos.created_at|date}}</h6>
+          <h6 class="w3-text-teal">Created on {{repos.created_at|date}}</h6>
+          <p>{{repos.description}}</p>
+          <a class="w3-text-teal" href="{{repos.html_url}}">View this project on GitHub</a>
+          <a class="w3-text-teal" href="{{repos.homepage}}">View the live page</a>
+          <hr>
+        </div>
+      </div>
+    </div><!-- End Right Column -->
+  </div><!-- End Grid -->
+</div><!-- End Page Container -->
 </div>
